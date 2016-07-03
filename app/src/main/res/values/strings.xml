@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Meters In The Dark</string>
+    <string name="energy">Energy</string>
+    <string name="t1">T1</string>
+    <string name="t2">T2</string>
+    <string name="t3">T3</string>
+    <string name="t1ready">0</string>
+    <string name="t2ready">0</string>
+    <string name="t3ready">0</string>
+    <string name="hot_ready">0</string>
+    <string name="cold_ready">0</string>
+    <string name="water">Water</string>
+    <string name="hot">Hot</string>
+    <string name="cold">Cold</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="screen2">Complete!</string>
+    <string name="send">Send</string>
+    <string name="delimiter">.....</string>
+</resources>

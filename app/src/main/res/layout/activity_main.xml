@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---TODO: Repair non adaptive screen. Bullshit!-->
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context="com.local.doctor.jkh_lighter.MainActivity"
+        android:clickable="false">
+
+    <TableRow android:layout_width="match_parent"
+              android:layout_height="96dp" android:weightSum="1"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentStart="true"
+              android:id="@+id/tableRow"
+              android:layout_alignParentEnd="true">
+        <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.51">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ok"
+                    android:id="@+id/btnOk"
+                    android:layout_gravity="center"
+                    android:minWidth="100dp"/>
+        </FrameLayout>
+    </TableRow>
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/energy"
+                android:id="@+id/textView2"
+                android:gravity="center"
+                android:layout_marginTop="10dp" android:layout_marginBottom="10dp"/>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/t1"
+                    android:id="@+id/textView"
+            />
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editTextT1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center" android:selectAllOnFocus="false"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/t2"
+                    android:id="@+id/textView4"
+            />
+            <EditText android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:inputType="numberDecimal"
+                      android:ems="10"
+                      android:id="@+id/editTextT2"
+                      android:layout_marginLeft="15dp"
+                      android:layout_gravity="center"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="center">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceLarge"
+                      android:text="@string/t3"
+                      android:id="@+id/textView5"
+            />
+            <EditText android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:inputType="numberDecimal"
+                      android:ems="10"
+                      android:id="@+id/editTextT3"
+                      android:layout_marginLeft="15dp"
+                      android:layout_gravity="center"/>
+        </TableRow>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/water"
+                android:id="@+id/textView3"
+                android:gravity="center" android:layout_marginTop="10dp" android:layout_marginBottom="10dp"/>
+        <TableLayout android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+            <TableRow android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textAppearance="?android:attr/textAppearanceLarge"
+                          android:text="@string/cold"
+                          android:id="@+id/textView6"
+                          android:layout_marginRight="25dp"/>
+                <EditText android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:inputType="numberDecimal"
+                          android:ems="10"
+                          android:id="@+id/editTextCold"
+                          android:layout_gravity="center"/>
+            </TableRow>
+            <TableRow android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textAppearance="?android:attr/textAppearanceLarge"
+                          android:text="@string/hot"
+                          android:id="@+id/textView7"
+                          android:layout_marginRight="15dp"/>
+                <EditText android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:inputType="numberDecimal"
+                          android:ems="10"
+                          android:id="@+id/editTextHot"
+                          android:layout_gravity="center"/>
+            </TableRow>
+        </TableLayout>
+    </TableLayout>
+</RelativeLayout>
