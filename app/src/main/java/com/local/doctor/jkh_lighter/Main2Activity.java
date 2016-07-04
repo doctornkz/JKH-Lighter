@@ -41,8 +41,6 @@ public class Main2Activity extends AppCompatActivity {
         final String energy = "Energy: T1:" + t1 + " T2:" + t2 + " T3:" + t3;
         final String water = "Water: Cold:" + cold + " Hot:" + hot;
 
-
-
          View.OnClickListener oclBtnSend = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,9 +53,7 @@ public class Main2Activity extends AppCompatActivity {
             }
         };
 
-
         btnSend.setOnClickListener(oclBtnSend);
-
 
         View.OnClickListener oclBtnCancel = new View.OnClickListener() {
             @Override
@@ -67,6 +63,7 @@ public class Main2Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
+
         btnCancel.setOnClickListener(oclBtnCancel);
 
     }
