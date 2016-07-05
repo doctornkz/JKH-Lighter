@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText hot;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) { //главный класс приложения
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
