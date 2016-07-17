@@ -9,89 +9,89 @@
 
     <TableLayout android:layout_width="match_parent" android:layout_height="match_parent">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/energy"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/energy"
                   android:id="@+id/textView11" android:gravity="center" android:layout_marginTop="10dp"
                   android:layout_marginBottom="10dp"/>
         <TableRow android:layout_width="fill_parent" android:layout_height="match_parent" android:gravity="center"
         >
             <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
-                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/t1"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/t1"
                       android:id="@+id/textView13"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:text="@string/delimiter"
                     android:id="@+id/textView27"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:text="@string/t1ready"
                     android:id="@+id/textViewT1" android:layout_column="2"/>
         </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/t2"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/t2"
                       android:id="@+id/textView15" android:layout_gravity="bottom"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/delimiter"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/delimiter"
                       android:id="@+id/textView28"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:text="@string/t2ready"
                     android:id="@+id/textViewT2" android:layout_column="2"/>
         </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/t3"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/t3"
                       android:id="@+id/textView17" android:layout_gravity="bottom"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/delimiter"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/delimiter"
                       android:id="@+id/textView29"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:text="@string/t3ready"
                     android:id="@+id/textViewT3" android:layout_column="2"/>
         </TableRow>
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/water"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/water"
                   android:id="@+id/textView19" android:gravity="center" android:layout_marginTop="10dp"
                   android:layout_marginBottom="10dp"/>
         <TableLayout android:layout_width="match_parent" android:layout_height="match_parent">
             <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
                       android:gravity="center">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/cold"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/cold"
                           android:id="@+id/textView20" android:layout_gravity="bottom"
                 />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/delimiter"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/delimiter"
                           android:id="@+id/textView30"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:text="@string/cold_ready"
                         android:id="@+id/textViewCold" android:layout_column="2"/>
             </TableRow>
             <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
                       android:gravity="center">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/hot"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/hot"
                           android:id="@+id/textView21"
                           android:layout_gravity="bottom" android:gravity="center"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                          android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/delimiter"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Large" android:text="@string/delimiter"
                           android:id="@+id/textView31"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:text="@string/hot_ready"
                         android:id="@+id/textViewHot" android:layout_column="2"/>
             </TableRow>

@@ -34,7 +34,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+
                 android:text="@string/energy"
                 android:id="@+id/textView2"
                 android:gravity="center"
@@ -46,7 +46,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+
                     android:text="@string/t1"
                     android:id="@+id/textView"
             />
@@ -66,7 +66,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+
                     android:text="@string/t2"
                     android:id="@+id/textView4"
             />
@@ -83,7 +83,7 @@
                   android:gravity="center">
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:textAppearance="?android:attr/textAppearanceLarge"
+
                       android:text="@string/t3"
                       android:id="@+id/textView5"
             />
@@ -98,7 +98,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+
                 android:text="@string/water"
                 android:id="@+id/textView3"
                 android:gravity="center" android:layout_marginTop="10dp" android:layout_marginBottom="10dp"/>
@@ -109,7 +109,7 @@
                       android:gravity="center">
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:textAppearance="?android:attr/textAppearanceLarge"
+
                           android:text="@string/cold"
                           android:id="@+id/textView6"
                           android:layout_marginRight="25dp"/>
@@ -125,7 +125,7 @@
                       android:gravity="center">
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:textAppearance="?android:attr/textAppearanceLarge"
+
                           android:text="@string/hot"
                           android:id="@+id/textView7"
                           android:layout_marginRight="15dp"/>
@@ -136,6 +136,18 @@
                           android:id="@+id/editTextHot"
                           android:layout_gravity="center"/>
             </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp">
+                <Switch
+                        android:text="@string/light"
+                        android:id="@+id/LightSwitch" android:layout_column="1"/>
+
+            </TableRow>
+
         </TableLayout>
+
     </TableLayout>
 </RelativeLayout>
