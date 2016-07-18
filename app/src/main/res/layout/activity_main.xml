@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!---TODO: Repair non adaptive screen. Bullshit!-->
+<!---TODO: Need Face lifting, really boring interface!-->
+
 
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,25 +10,6 @@
         tools:context="com.local.doctor.jkh_lighter.MainActivity"
         android:clickable="false">
 
-    <TableRow android:layout_width="match_parent"
-              android:layout_height="96dp" android:weightSum="1"
-              android:layout_alignParentBottom="true"
-              android:layout_alignParentStart="true"
-              android:id="@+id/tableRow"
-              android:layout_alignParentEnd="true">
-        <FrameLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.51">
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ok"
-                    android:id="@+id/btnOk"
-                    android:layout_gravity="center"
-                    android:minWidth="100dp"/>
-        </FrameLayout>
-    </TableRow>
     <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -138,12 +120,18 @@
             </TableRow>
 
             <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical|center_horizontal">
                 <Switch
                         android:text="@string/light"
-                        android:id="@+id/LightSwitch" android:layout_column="1"/>
+                        android:id="@+id/LightSwitch" android:layout_column="1"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_gravity="center"
+                        android:textOn="@string/on"
+                        android:textOff="@string/off"/>
 
             </TableRow>
 

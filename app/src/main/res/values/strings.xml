@@ -16,6 +16,10 @@
     <string name="cancel">Cancel</string>
     <string name="screen2">Complete!</string>
     <string name="send">Send</string>
+    <string name="share">Share</string>
     <string name="delimiter">.....</string>
     <string name="light">Light</string>
+    <string name="about">About</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
 </resources>
