@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.widget.*;
 import android.util.Log;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     private Camera camera;
@@ -24,12 +26,16 @@ public class MainActivity extends AppCompatActivity {
     private EditText cold;
     private EditText hot;
     private String TAG = "Meters";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Context context = this;
+    }
 
+    public void onStart()  {
+        super.onStart();
+        final Context context = this;
         PackageManager pm = context.getPackageManager();
         if (!pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             Log.e(TAG, "Device has no camera!");
@@ -39,8 +45,16 @@ public class MainActivity extends AppCompatActivity {
         Switch switch_light = (Switch)findViewById(R.id.LightSwitch);
         switch_light.setChecked(false);
         Log.d(TAG, "Switch initialize");
+        Log.d(TAG, "First Start, Is it Camera busy?");
 
-        camera = Camera.open();
+        try {
+            camera = Camera.open();
+            Log.d(TAG, "Camera is not locked...");
+        } catch (RuntimeException ex){
+            ex.printStackTrace();
+
+        }
+
         Log.d(TAG, "Camera initialize");
 
         t1 = (EditText) findViewById(R.id.editTextT1);
@@ -67,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "Else statement!");
                     if (camera == null) {
                         Log.d(TAG, "Check = false, Camera service gone away...");
+                        //TODO: FIXME After pause - apps crashing, think deeply about states.
                     }
                     final Parameters p = camera.getParameters();
                     p.setFlashMode(Parameters.FLASH_MODE_OFF);
@@ -113,4 +128,19 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (camera != null) {
+            camera.release();
+            camera = null;
+            Log.d(TAG, "Camera released onPaused state.");
+
+        }
+    }
+    @Override
+    public void onRestart() {
+        super.onRestart();
+    }
+
 }
