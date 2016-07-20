@@ -16,9 +16,10 @@ import android.widget.*;
 import android.util.Log;
 
 
-
 public class MainActivity extends AppCompatActivity {
 
+    public boolean existCamera = true;
+    private boolean switcher = false;
     private Camera camera;
     private EditText t1;
     private EditText t2;
@@ -31,76 +32,81 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-
-    public void onStart()  {
-        super.onStart();
         final Context context = this;
         PackageManager pm = context.getPackageManager();
         if (!pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            Log.e(TAG, "Device has no camera!");
-            return;
+            Log.d(TAG, "onStart:Device has no camera");
+            existCamera = false;
+            //return;
+        }
+    }
+
+    public void SwitchCam(boolean switcher) {
+
+        if (existCamera) {
+            Log.d(TAG, "onStart:Cam Exist");
         }
 
         Switch switch_light = (Switch)findViewById(R.id.LightSwitch);
-        switch_light.setChecked(false);
-        Log.d(TAG, "Switch initialize");
-        Log.d(TAG, "First Start, Is it Camera busy?");
+        switch_light.setChecked(switcher);
 
-        try {
-            camera = Camera.open();
-            Log.d(TAG, "Camera is not locked...");
-        } catch (RuntimeException ex){
-            ex.printStackTrace();
+        if (switcher) {
+            try {
+                camera = Camera.open();
+                final Parameters p = camera.getParameters();
+                p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+                camera.setParameters(p);
+                Log.d(TAG, "onStart:Camera switched ON by switch");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                Log.d(TAG, "onStart:Switch ON failed");
+            }
 
+        } else {
+            try {
+                //camera = Camera.open();
+                final Parameters p = camera.getParameters();
+                p.setFlashMode(Parameters.FLASH_MODE_OFF);
+                camera.setParameters(p);
+                Log.d(TAG, "onStart:Camera switched OFF by switch");
+
+                camera.release();
+                camera.unlock();
+
+            } catch (Exception ex){
+                ex.printStackTrace();
+                Log.d(TAG, "onStart:Switch OFF failed");
+                //TODO: Something wrong - always "failed" detected.
+            }
         }
+    }
 
-        Log.d(TAG, "Camera initialize");
 
+    public void onStart()  {
+        super.onStart();
+        //SwitchCam(switcher, true);
+
+// measurement =======================
         t1 = (EditText) findViewById(R.id.editTextT1);
         t2 = (EditText) findViewById(R.id.editTextT2);
         t3 = (EditText) findViewById(R.id.editTextT3);
         cold = (EditText) findViewById(R.id.editTextCold);
         hot = (EditText) findViewById(R.id.editTextHot);
+// ===================================
 
+        Switch switch_light = (Switch)findViewById(R.id.LightSwitch);
         switch_light.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-
-                if(isChecked){
-                    if (camera == null) {
-                        Log.d(TAG, "Check = true, Camera service gone away...Restart!");
-                        camera = Camera.open();
-                    }
-                    final Parameters p = camera.getParameters();
-                    p.setFlashMode(Parameters.FLASH_MODE_TORCH);
-                    camera.setParameters(p);
-                    camera.startPreview();
-                    Log.d(TAG, "Camera switched ON by switch");
-                } else {
-                    Log.d(TAG, "Else statement!");
-                    if (camera == null) {
-                        Log.d(TAG, "Check = false, Camera service gone away...");
-                        //TODO: FIXME After pause - apps crashing, think deeply about states.
-                    }
-                    final Parameters p = camera.getParameters();
-                    p.setFlashMode(Parameters.FLASH_MODE_OFF);
-                    camera.setParameters(p);
-                    camera.stopPreview();
-                    if (camera != null) {
-                        camera.release();
-                        camera = null;
-                        Log.d(TAG, "Camera released in switch");
-                    }
-                    Log.d(TAG, "Camera switched OFF by switch");
-            }
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                switcher = isChecked;
+                SwitchCam(switcher);
         }
         });
 
-        Log.d(TAG, "Outbound from switch...");
+        Log.d(TAG, "onStart:Outbound from switch.");
 
     }
-
+// Menu ============================
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -131,16 +137,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        if (camera != null) {
-            camera.release();
-            camera = null;
-            Log.d(TAG, "Camera released onPaused state.");
-
-        }
+        SwitchCam(false);
+        Log.d(TAG, "onPause:");
     }
+
     @Override
     public void onRestart() {
         super.onRestart();
+        SwitchCam(false);
+        Log.d(TAG, "onRestart:");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        SwitchCam(false);
+        Log.d(TAG, "onStop:");
+    ////
+
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        SwitchCam(false);
+        Log.d(TAG, "onDestroy:");
+
+
     }
 
 }
