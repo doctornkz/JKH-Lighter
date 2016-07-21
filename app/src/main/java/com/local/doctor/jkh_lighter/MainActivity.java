@@ -1,6 +1,5 @@
 package com.local.doctor.jkh_lighter;
 
-//TODO: Add Local Storage for Temporary Measurements.
 //TODO: Add Settings for Sections - Energy, Water, Gas, Custom Fields.
 
 import android.content.Context;
@@ -18,7 +17,7 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
-    public boolean existCamera = true;
+    private boolean existCamera = true;
     private boolean switcher = false;
     private Camera camera;
     private EditText t1;
@@ -37,11 +36,10 @@ public class MainActivity extends AppCompatActivity {
         if (!pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             Log.d(TAG, "onStart:Device has no camera");
             existCamera = false;
-            //return;
         }
     }
 
-    public void SwitchCam(boolean switcher) {
+    private void SwitchCam(boolean switcher) {
 
         if (existCamera) {
             Log.d(TAG, "onStart:Cam Exist");
@@ -69,14 +67,11 @@ public class MainActivity extends AppCompatActivity {
                 p.setFlashMode(Parameters.FLASH_MODE_OFF);
                 camera.setParameters(p);
                 Log.d(TAG, "onStart:Camera switched OFF by switch");
-
                 camera.release();
-                camera.unlock();
-
+                Log.d(TAG, "onStart:Camera switched OFF. Released.");
             } catch (Exception ex){
                 ex.printStackTrace();
                 Log.d(TAG, "onStart:Switch OFF failed");
-                //TODO: Something wrong - always "failed" detected.
             }
         }
     }
@@ -84,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onStart()  {
         super.onStart();
-        //SwitchCam(switcher, true);
 
 // measurement =======================
         t1 = (EditText) findViewById(R.id.editTextT1);
@@ -153,16 +147,13 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         SwitchCam(false);
         Log.d(TAG, "onStop:");
-    ////
-
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         SwitchCam(false);
         Log.d(TAG, "onDestroy:");
-
-
     }
 
 }
